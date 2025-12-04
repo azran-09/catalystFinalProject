@@ -1,0 +1,90 @@
+.calendar-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.type-creator {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.type-creator input[type="color"] {
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.week-days, .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.week-days {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.day-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 140px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.day-card.empty {
+  background-color: #f5f5f5;
+  border: none;
+  pointer-events: none; /* User can't click them */
+}
+.day-card:hover {
+    background-color: #f9f9f9;
+    border-color: #000;
+}
+
+.event-list {
+  flex-grow: 1; /* Pushes the input area to the bottom */
+  margin-bottom: 5px;
+  overflow-y: auto; /* Scroll if too many events */
+  max-height: 80px;
+}
+
+.event-pill { /*styling for each event displayed in the day card*/
+  font-size: 0.75rem;
+  padding: 2px 5px;
+  margin-bottom: 3px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.day-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.day-input-area select {
+  font-size: 0.7rem;
+  padding: 2px;
+}
+
+.mini-input {
+  width: 100%;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px;
+}

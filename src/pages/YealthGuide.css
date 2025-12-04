@@ -1,0 +1,52 @@
+.column-headings{
+   background-color: #f0f0f0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    color: #333;
+    text-align: center;
+}
+
+.top-heading{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.guide-container {
+    padding: 10px;
+    text-align: left;
+}
+
+.guide-list {
+    list-style-type: none;
+    padding: 0;
+    /*to make it into columns*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guide-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    color: #333;
+    text-align: center;
+}
+
+.guide-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.guide-item hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
