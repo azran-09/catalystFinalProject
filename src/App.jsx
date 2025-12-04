@@ -2,6 +2,7 @@ import {useState} from 'react';
 import './App.css';
 import YealthGuide from './pages/YealthGuide';
 import YealthCalendar from './pages/YealthCalendar';
+import YealthSymptoms from './pages/YealthSymptoms';
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
                 <nav style={{ padding: '20px', backgroundColor: '#eee', marginBottom: '20px' }}>
                     <button onClick={() => setPage('guide')}> Guide </button>
                     <button onClick={() => setPage('calendar')}> Calendar </button>
+                    <button onClick={() => setPage('symptoms')}> Symptoms </button>
                 </nav>
-                {page === 'guide' ? <YealthGuide /> : <YealthCalendar />}
+                {page === 'guide' ? <YealthGuide /> : page === 'calendar' ? <YealthCalendar /> : <YealthSymptoms />}
            
         
             </div>
