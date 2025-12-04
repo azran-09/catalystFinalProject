@@ -1,15 +1,17 @@
 import express from "express";
-import dotenv from "dotenv";
 import Groq from "groq-sdk";
-
-dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+const apiKey = process.env.GROQ_API_KEY;
+
+if (!apiKey) {
+  console.error("Missing GROQ_API_KEY");
+  process.exit(1);
+}
+
+const groq = new Groq({ apiKey });
 
 app.post("/api/advice", async (req, res) => {
   try {
