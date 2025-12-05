@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { marked } from "marked";
+import { motion } from "framer-motion";
 
 
 const productLinks = {
@@ -88,7 +89,7 @@ function YealthSymptoms() {
       </div>
       {/* ------------------------------------------------ */}
 
-      <div style={{
+      <motion.div style={{
   width: "100%",
   maxWidth: "650px",
   backgroundColor: "#fff",
@@ -97,7 +98,10 @@ function YealthSymptoms() {
   boxShadow: "0px 4px 20px rgba(0,0,0,0.08)",
   margin: "0 auto",
   boxSizing: "border-box",
-}}>
+    }} animate={{ scale: 1 }}
+                    initial={{ scale: 0.9 }}
+                    transition={{ duration: 0.6 }}
+                   whileHover={{scale: 1.05}}>
 
         <textarea
           placeholder="Describe your symptoms..."
@@ -219,7 +223,7 @@ function YealthSymptoms() {
           ))}
         </div>
 
-      </div>
+      </motion.div>
 
     </div>
   );

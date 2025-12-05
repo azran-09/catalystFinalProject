@@ -1,4 +1,5 @@
 import './YealthGuide.css';
+import { motion } from "framer-motion";
 
 function YealthGuide() {
     return (
@@ -15,7 +16,10 @@ function YealthGuide() {
                The Yurse Developers
             </p>
 
-            <div className="table-wrapper">
+            <motion.div className="table-wrapper" animate={{ scale: 1 }}
+                    initial={{ scale: 0.9 }}
+                    transition={{ duration: 0.6 }}
+                   whileHover={{scale: 1.05}}>
                 <table className="custom-table">
                     <thead>
                         <tr>
@@ -88,7 +92,7 @@ function YealthGuide() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </motion.div>
         </section>
     );
 }
