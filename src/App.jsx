@@ -32,15 +32,12 @@ function App() {
         alignItems: "center",
       }}
     >
-      {/* ⭐ Navbar always visible */}
       <Navbar page={page} setPage={setPage} />
 
-      {/* Page content */}
       <div style={{ width: "100%", maxWidth: "900px", marginTop: "6rem" }}>
         {renderPage()}
       </div>
 
-      {/* Footer */}
       <footer
         style={{
           textAlign: "center",
@@ -49,6 +46,8 @@ function App() {
           color: "#1B4965",
           fontSize: "0.9rem",
           opacity: 0.8,
+          background: "#d0e8d5",
+          width:"100%",
         }}
       >
         © {new Date().getFullYear()} Yale Nurse — Built to support student wellness.

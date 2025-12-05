@@ -46,13 +46,11 @@
   text-align: left;
 }
 
-/* Hover effect: slight lift + subtle highlight */
 .custom-table td:hover {
   background: #f7fbff;
   transform: translateY(-2px);
 }
 
-/* Link styling */
 .custom-table a {
   color: #1b4965;
   font-weight: 600;
@@ -64,7 +62,6 @@
   text-decoration: underline;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 600px) {
   .custom-table {
     min-width: 100%;

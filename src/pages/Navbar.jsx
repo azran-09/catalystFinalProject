@@ -28,8 +28,6 @@ export default function Navbar({ page, setPage }) {
           whileHover={{
             scale: 1.2,
             color: "#1B4965",
-            textDecoration: "underline",
-            textUnderlineOffset: 5,
           }}
           onClick={() => handleNav("guide")}
           className={page === "guide" ? "active" : ""}
@@ -41,8 +39,6 @@ export default function Navbar({ page, setPage }) {
           whileHover={{
             scale: 1.2,
             color: "#1B4965",
-            textDecoration: "underline",
-            textUnderlineOffset: 5,
           }}
           onClick={() => handleNav("calendar")}
           className={page === "calendar" ? "active" : ""}
@@ -54,8 +50,6 @@ export default function Navbar({ page, setPage }) {
           whileHover={{
             scale: 1.2,
             color: "#1B4965",
-            textDecoration: "underline",
-            textUnderlineOffset: 5,
           }}
           onClick={() => handleNav("symptoms")}
           className={page === "symptoms" ? "active" : ""}
