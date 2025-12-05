@@ -64,7 +64,9 @@ function YealthCalendar() {
   };
     return (
       <div className="calendar-container">
-          <h1 className="calendar-heading"> My Yealth Calendar</h1>
+          <h1 style={{ fontSize: "2.4rem", fontWeight: "700", color: "#1B4965"}}>
+          My Yealth Calendar
+        </h1>
           <div className="calendar-header">
           <button className="buttons" onClick={() => changeMonth(-1)}>Previous Month</button>
           <h2>
