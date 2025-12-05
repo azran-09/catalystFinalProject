@@ -1,7 +1,13 @@
 .calendar-container {
     padding: 20px;
-    max-width: 900px;
+    /*max-width: 900px;*/
     margin: 0 auto;
+    background-color: #F0F4F8;
+    font-family: "Inter", sans-serif;
+}
+
+h2 {
+  color: #1B4965;
 }
 
 .type-creator {
@@ -87,4 +93,27 @@
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px;
+}
+
+.buttons {
+  width: 20%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #1B4965;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  /*opacity: loading ? 0.7 : 1*/
+}
+
+.button-type {
+  width: 10%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: #006d95;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

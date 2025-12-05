@@ -63,17 +63,17 @@ function YealthCalendar() {
     });
   };
     return (
-        <div className="calendar-container">
-            <h1 className="calendar-heading"> My Yealth Calendar</h1>
-            <div className="calendar-header">
-            <button onClick={() => changeMonth(-1)}>Prev</button>
-            <h2>
-            {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
-            </h2>
-            <button onClick={() => changeMonth(1)}>Next</button>
+      <div className="calendar-container">
+          <h1 className="calendar-heading"> My Yealth Calendar</h1>
+          <div className="calendar-header">
+          <button className="buttons" onClick={() => changeMonth(-1)}>Previous Month</button>
+          <h2>
+          {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
+          </h2>
+          <button className="buttons" onClick={() => changeMonth(1)}>Next Month</button>
   </div>
-            <p> keep track of appointments, deadlines, symptoms, and more.</p>
-            <div className="type-creator">
+            <p> Keep track of appointments, deadlines, symptoms, and anything else important to your health.</p>
+      <div className="type-creator">
         <h3>Create New Event Type:</h3>
         <input 
           type="text" 
@@ -87,7 +87,7 @@ function YealthCalendar() {
           onChange={(e) => setNewTypeColor(e.target.value)}
           title="Pick a color"
         />
-        <button onClick={addCustomType}>Add Type</button>
+        <button className= "button-type" onClick={addCustomType}>Add Type</button>
       </div>
 
       <div className="week-days">
