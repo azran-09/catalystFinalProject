@@ -10,7 +10,7 @@ function YealthCalendar() {
     { name: 'Vaccine', color: '#c8d3e6' },
     { name: 'Dentist', color: '#c8e6c9' } 
   ] );
-
+  
     const [newTypeName, setNewTypeName] = useState('');
     const [newTypeColor, setNewTypeColor] = useState('#add8e6');
 
