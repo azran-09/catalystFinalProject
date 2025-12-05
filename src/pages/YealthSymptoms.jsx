@@ -72,7 +72,7 @@ function YealthSymptoms() {
 
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <h1 style={{ fontSize: "2.4rem", fontWeight: "700", color: "#1B4965" }}>
-          Yale Nurse
+          Symptom + Pharmacy Checker
         </h1>
         <p style={{
           color: "#1B4965",
@@ -83,7 +83,7 @@ function YealthSymptoms() {
           marginRight: "auto"
         }}>
           Get personalized, AI-powered guidance for your symptoms, discover recommended medications,
-          and quickly find nearby pharmacies — all designed to help Yale students stay healthy.
+          and quickly find nearby pharmacies.
         </p>
       </div>
       {/* ------------------------------------------------ */}
@@ -220,17 +220,6 @@ function YealthSymptoms() {
         </div>
 
       </div>
-
-      <footer style={{
-        textAlign: "center",
-        marginTop: "3rem",
-        padding: "1rem",
-        color: "#1B4965",
-        fontSize: "0.9rem",
-        opacity: 0.8
-      }}>
-        © {new Date().getFullYear()} Yale Nurse — Built to support student wellness.
-      </footer>
 
     </div>
   );

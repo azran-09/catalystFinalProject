@@ -13,40 +13,66 @@
     margin-bottom: 20px;
 }
 
-.guide-container {
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #e8f1fa;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 600px;
+  border: 1px solid #c6d4e1; /* outer border */
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #c6d4e1; /* grid lines */
+  padding: 12px;
+  vertical-align: top;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+/* Header styling */
+.custom-table th {
+  background: #1b4965;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Hover effect: slight lift + subtle highlight */
+.custom-table td:hover {
+  background: #f7fbff;
+  transform: translateY(-2px);
+}
+
+/* Link styling */
+.custom-table a {
+  color: #1b4965;
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.custom-table a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .custom-table {
+    min-width: 100%;
+  }
+
+  .custom-table th,
+  .custom-table td {
     padding: 10px;
-    text-align: left;
-}
-
-.guide-list {
-    list-style-type: none;
-    padding: 0;
-    /*to make it into columns*/
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.guide-item {
-    background-color: #f0f0f0;
-    padding: 10px;
-    width: 100%;
-    border-radius: 8px;
-    color: #333;
-    text-align: center;
-}
-
-.guide-item a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-}
-
-.guide-item hover {
-    background-color: #e0e0e0;
-    cursor: pointer;
-    transform: translateY(10px);
-    transition: 0.3s;
+    font-size: 14px;
+  }
 }

@@ -1,25 +1,60 @@
-import {useState} from 'react';
-import './App.css';
-import YealthGuide from './pages/YealthGuide';
-import YealthCalendar from './pages/YealthCalendar';
-import YealthSymptoms from './pages/YealthSymptoms';
-
+import { useState } from "react";
+import "./App.css";
+import YealthGuide from "./pages/YealthGuide";
+import YealthCalendar from "./pages/YealthCalendar";
+import YealthSymptoms from "./pages/YealthSymptoms";
+import Navbar from "./pages/Navbar";
 
 function App() {
-    const [page, setPage] = useState('guide'); //makes initial state guide but looks for other pages when called
-        return (
-            <div>
-                <h1> Yurse: Your own Nurse at Yale</h1>
-                <nav style={{ padding: '20px', backgroundColor: '#eee', marginBottom: '20px' }}>
-                    <button onClick={() => setPage('guide')}> Guide </button>
-                    <button onClick={() => setPage('calendar')}> Calendar </button>
-                    <button onClick={() => setPage('symptoms')}> Symptoms </button>
-                </nav>
-                {page === 'guide' ? <YealthGuide /> : page === 'calendar' ? <YealthCalendar /> : <YealthSymptoms />}
-           
-        
-            </div>
-        );
-    }
+  const [page, setPage] = useState("guide");
 
-    export default App;
+  const renderPage = () => {
+    switch (page) {
+      case "guide":
+        return <YealthGuide />;
+      case "calendar":
+        return <YealthCalendar />;
+      case "symptoms":
+        return <YealthSymptoms />;
+      default:
+        return <YealthGuide />;
+    }
+  };
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#F0F4F8",
+        minHeight: "100vh",
+        fontFamily: "Inter, sans-serif",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      {/* ⭐ Navbar always visible */}
+      <Navbar page={page} setPage={setPage} />
+
+      {/* Page content */}
+      <div style={{ width: "100%", maxWidth: "900px", marginTop: "6rem" }}>
+        {renderPage()}
+      </div>
+
+      {/* Footer */}
+      <footer
+        style={{
+          textAlign: "center",
+          marginTop: "3rem",
+          padding: "1rem",
+          color: "#1B4965",
+          fontSize: "0.9rem",
+          opacity: 0.8,
+        }}
+      >
+        © {new Date().getFullYear()} Yale Nurse — Built to support student wellness.
+      </footer>
+    </div>
+  );
+}
+
+export default App;
