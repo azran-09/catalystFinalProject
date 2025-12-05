@@ -29,6 +29,17 @@ export default function Navbar({ page, setPage }) {
             scale: 1.2,
             color: "#1B4965",
           }}
+          onClick={() => handleNav("home")}
+          className={page === "home" ? "active" : ""}
+        >
+          Home
+        </motion.li>
+        
+        <motion.li
+          whileHover={{
+            scale: 1.2,
+            color: "#1B4965",
+          }}
           onClick={() => handleNav("guide")}
           className={page === "guide" ? "active" : ""}
         >

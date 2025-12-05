@@ -4,12 +4,15 @@ import YealthGuide from "./pages/YealthGuide";
 import YealthCalendar from "./pages/YealthCalendar";
 import YealthSymptoms from "./pages/YealthSymptoms";
 import Navbar from "./pages/Navbar";
+import Home from "./pages/Home"
 
 function App() {
-  const [page, setPage] = useState("guide");
+  const [page, setPage] = useState("home");
 
   const renderPage = () => {
     switch (page) {
+      case "home":
+        return <Home/>
       case "guide":
         return <YealthGuide />;
       case "calendar":
@@ -17,7 +20,7 @@ function App() {
       case "symptoms":
         return <YealthSymptoms />;
       default:
-        return <YealthGuide />;
+        return <Home />;
     }
   };
 
