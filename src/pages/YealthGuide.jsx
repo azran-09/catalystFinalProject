@@ -3,7 +3,9 @@ import './YealthGuide.css';
 function YealthGuide() {
     return (
         <section className="guide-container">
-            <h1 className="top-heading"> Yealth Guide</h1>
+            <h1 style={{ fontSize: "2.4rem", fontWeight: "700", color: "#1B4965", textAlign:"center" }}>
+          Yealth Guide
+        </h1>
 
             <p>
                Welcome to your guide to Yale Health (Yealth!) Whether you’re feeling under the weather or are preparing for the inevitable yague, welcome. We developed the Yurse app with our fellow students in mind, since we know how hard it can be to get sick on your own for the first time (and any times after that). Our goal is to make sure you get better ASAP and stay healthy through Yurse’s various features by making any Yealth resource visible and easily available. [talk about app features too] 
