@@ -28,7 +28,7 @@ function YealthSymptoms() {
   const [symptoms, setSymptoms] = useState("");
   const [advice, setAdvice] = useState("");
   const [loading, setLoading] = useState(false);
-  const [expandedProducts, setExpandedProducts] = useState({});
+  const [expandedProducts, setExpandedProducts] = useState(null);
 
   const getAdvice = async () => {
     setLoading(true);
@@ -101,7 +101,7 @@ function YealthSymptoms() {
     }} animate={{ scale: 1 }}
                     initial={{ scale: 0.9 }}
                     transition={{ duration: 0.6 }}
-                   whileHover={{scale: 1.05}}>
+                   whileHover={{scale: 1.01}}>
 
         <textarea
           placeholder="Describe your symptoms..."
@@ -149,53 +149,68 @@ function YealthSymptoms() {
             ></div>
 
             {detectedProducts.length > 0 && (
-              <div style={{ marginTop: "1rem" }}>
-                <h4 style={{ color: "#1B4965" }}>Recommended Products</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                  {detectedProducts.map(([name, urls]) => (
-                    <div key={name} style={{ border: "1px solid #5FA8D3", borderRadius: "8px" }}>
-                      <button
-                        onClick={() => toggleProduct(name)}
-                        style={{
-                          width: "100%",
-                          textAlign: "left",
-                          padding: "8px 12px",
-                          backgroundColor: "#5FA8D3",
-                          color: "white",
-                          border: "none",
-                          borderRadius: "8px 8px 0 0",
-                          fontWeight: "bold",
-                          cursor: "pointer"
-                        }}
-                      >
-                        {name}
-                      </button>
+  <div style={{ marginTop: "1rem" }}>
+    <h4 style={{ color: "#1B4965" }}>Recommended Products</h4>
 
-                      {expandedProducts[name] && (
-                        <div style={{ backgroundColor: "#F0F4F8", borderRadius: "0 0 8px 8px", padding: "8px 12px" }}>
-                          {urls.map((link, idx) => (
-                            <a
-                              key={idx}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{
-                                display: "block",
-                                marginBottom: "4px",
-                                color: "#1B4965",
-                                textDecoration: "underline"
-                              }}
-                            >
-                              {link.pharmacy}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      {detectedProducts.map(([name, urls]) => {
+        const isOpen = expandedProducts === name;
+
+        return (
+          <div
+            key={name}
+            style={{
+              border: "1px solid #5FA8D3",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+          >
+            <button
+              onClick={() =>
+                setExpandedProducts(prev => (prev === name ? null : name))
+              }
+              style={{
+                width: "100%",
+                textAlign: "center",
+                padding: "8px 12px",
+                backgroundColor: "#5FA8D3",
+                color: "white",
+                border: "none",
+                borderRadius: "8px 8px 0 0",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+            >
+              {name}
+            </button>
+
+            <div
+              className={`collapsible ${isOpen ? "open" : ""}`}
+            >
+              {urls.map((link, idx) => (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    padding: "8px 12px",
+                    color: "#1B4965",
+                    textDecoration: "underline",
+                  }}
+                >
+                  {link.pharmacy}
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+)}
+
           </div>
         )}
 

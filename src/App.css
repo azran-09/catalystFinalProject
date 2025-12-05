@@ -21,3 +21,15 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
 }
+
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #F0F4F8;
+  border-radius: 0 0 8px 8px;
+  transition: max-height 0.35s ease;
+}
+
+.collapsible.open {
+  max-height: 500px;
+}
