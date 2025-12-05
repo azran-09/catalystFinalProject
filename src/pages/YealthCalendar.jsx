@@ -74,12 +74,12 @@ function YealthCalendar() {
           </h2>
           <button className="buttons" onClick={() => changeMonth(1)}>Next Month</button>
   </div>
-            <p> Keep track of appointments, deadlines, symptoms, and anything else important to your health.</p>
+            <p> Keep track of appointments, deadlines, symptoms, and anything else important to your health. <br /><br /> Use the input box below each day to name your event and choose its type from the dropdown above; Press the 'Enter' key to see it on the specified day! Add your own Event Types by naming your event in the "Create New Event Type" box below, choose a color for it, and click "Add Type". <br /><br /> Happy organizing!</p>
       <div className="type-creator">
         <h3>Create New Event Type:</h3>
-        <input 
+        <input className="type-name-input"
           type="text" 
-          placeholder="Type Name (e.g. Work)" 
+          placeholder="Type Name (e.g. Fitness)" 
           value={newTypeName}
           onChange={(e) => setNewTypeName(e.target.value)}
         />

@@ -9,7 +9,7 @@ function YealthGuide() {
         </h1>
 
             <p>
-               Welcome to your guide to Yale Health (Yealth!) Whether you’re feeling under the weather or are preparing for the inevitable yague, welcome. We developed the Yurse app with our fellow students in mind, since we know how hard it can be to get sick on your own for the first time (and any times after that). Our goal is to make sure you get better ASAP and stay healthy through Yurse’s various features by making any Yealth resource visible and easily available. [talk about app features too] 
+               Welcome to your guide to Yale Health (Yealth!). Here, we have compiled a list of essential resources and links to help you navigate the various services and information provided by Yale Health. Whether you're looking to make an appointment, understand your coverage, or find specific health resources, the answers to all of your questions are here :)
                <br /><br />
                Get well and stay well,
                <br />
@@ -81,7 +81,7 @@ function YealthGuide() {
                                 <strong>This is where you upload important, required documents for Yale’s health requirements!! Make sure you have all your things in order :)</strong>
                             </td>
 
-                            <td>Yale Safety Net</td>
+                            <td>Yale Safety Net: </td>
                             <td>
                                 <a href="https://safetynet.yale.edu/hc/en-us" target="_blank" rel="noopener noreferrer">
                                     https://safetynet.yale.edu/
