@@ -15,7 +15,7 @@ function YealthCalendar() {
     { name: 'Dentist', color: '#c8e6c9' } 
   ] );
 
-  const [user, setUser] = useState(null);
+const [user, setUser] = useState(null);
 const defaultTypes = [
   { name: 'General', color: '#f0f0f0' },
   { name: 'Medical', color: '#ffcdd2' },
