@@ -45,6 +45,19 @@ const defaultTypes = [
   });
 };
 
+const deleteEvent = (dayNumber, indexToDelete) => {
+    const dateKey = getDateKey(dayNumber);
+    setEvents(prev => {
+      const dayEvents= prev[dateKey] || [];
+      const updatedDayEvents = dayEvents.filter((_, i) => i !== indexToDelete);
+      return {
+        ...prev,
+        [dateKey]: updatedDayEvents
+      };
+    });
+    saveToFirestore(events);
+  };
+
     const addCustomType = () => {
   if (!newTypeName) return;
 
@@ -159,6 +172,10 @@ if (!user) return <SignIn />;
                   style={{ backgroundColor: evt.color }} // pick color!
                 >
                   {evt.text}
+                  <button 
+                    className="delete-button" 
+                    onClick={() => deleteEvent(dayNumber, index)}
+                    title="Delete Event">✖</button>
                 </div>
               ))}
             </div>

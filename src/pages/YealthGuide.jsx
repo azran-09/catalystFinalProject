@@ -10,10 +10,6 @@ function YealthGuide() {
 
             <p>
                Welcome to your guide to Yale Health (Yealth!). Here, we have compiled a list of essential resources and links to help you navigate the various services and information provided by Yale Health. Whether you're looking to make an appointment, understand your coverage, or find specific health resources, the answers to all of your questions are here :)
-               <br /><br />
-               Get well and stay well,
-               <br />
-               The Yurse Developers
             </p>
 
             <motion.div className="table-wrapper" animate={{ scale: 1 }}
