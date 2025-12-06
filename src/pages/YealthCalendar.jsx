@@ -10,7 +10,7 @@ function YealthCalendar() {
     { name: 'Vaccine', color: '#c8d3e6' },
     { name: 'Dentist', color: '#c8e6c9' } 
   ] );
-  
+
     const [newTypeName, setNewTypeName] = useState('');
     const [newTypeColor, setNewTypeColor] = useState('#add8e6');
 
@@ -121,15 +121,15 @@ function YealthCalendar() {
               <select 
                 onChange={(e) => setDraftType({ ...draftType, [dayNumber]: e.target.value })}
                 value={draftType[dayNumber] || availableTypes[0].color}
+                style={{backgroundColor: draftType}}
               >
                 {/* Map through ALL types (including custom ones) */}
                 {availableTypes.map(type => (
-                  <option key={type.name} value={type.color}>
+                  <option key={type.name} value={type.color} style={{ backgroundColor: type.color }}>
                     {type.name}
                   </option>
                 ))}
               </select>
-
               <input
                 type="text"
                 className="mini-input"
