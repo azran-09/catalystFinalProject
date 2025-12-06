@@ -46,17 +46,21 @@ const defaultTypes = [
 };
 
 const deleteEvent = (dayNumber, indexToDelete) => {
-    const dateKey = getDateKey(dayNumber);
-    setEvents(prev => {
-      const dayEvents= prev[dateKey] || [];
-      const updatedDayEvents = dayEvents.filter((_, i) => i !== indexToDelete);
-      return {
-        ...prev,
-        [dateKey]: updatedDayEvents
-      };
-    });
-    saveToFirestore(events);
-  };
+  const dateKey = getDateKey(dayNumber);
+
+  setEvents(prev => {
+    const dayEvents = prev[dateKey] || [];
+    const updatedDayEvents = dayEvents.filter((_, i) => i !== indexToDelete);
+
+    const updated = {
+      ...prev,
+      [dateKey]: updatedDayEvents
+    };
+    
+    saveToFirestore(updated);
+    return updated;
+  });
+};
 
     const addCustomType = () => {
   if (!newTypeName) return;
