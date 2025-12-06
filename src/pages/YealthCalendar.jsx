@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './YealthCalendar.css';
+import { auth, db } from './firebase.js';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import SignIn from "./SignIn";
 
 function YealthCalendar() {
     /*const days = Array.from({ length: 30 }, (_, i) => i + 1);*/
@@ -11,32 +15,45 @@ function YealthCalendar() {
     { name: 'Dentist', color: '#c8e6c9' } 
   ] );
 
+  const [user, setUser] = useState(null);
+const defaultTypes = [
+  { name: 'General', color: '#f0f0f0' },
+  { name: 'Medical', color: '#ffcdd2' },
+  { name: 'Vaccine', color: '#c8d3e6' },
+  { name: 'Dentist', color: '#c8e6c9' }
+];
+
+
     const [newTypeName, setNewTypeName] = useState('');
     const [newTypeColor, setNewTypeColor] = useState('#add8e6');
 
     const [events, setEvents] = useState({});
     const [currentDate, setCurrentDate] = useState(new Date());
 
+    const addEventToDay = (dayNumber, text, typeColor) => {
+  if (!text) return;
+
+  const dateKey = getDateKey(dayNumber);
+
+  setEvents(prev => {
+    const updated = {
+      ...prev,
+      [dateKey]: [...(prev[dateKey] || []), { text, color: typeColor }]
+    };
+    saveToFirestore(updated);
+    return updated;
+  });
+};
+
     const addCustomType = () => {
-    if (newTypeName) {
-      setAvailableTypes([...availableTypes, { name: newTypeName, color: newTypeColor }]);
-      setNewTypeName(''); // Clear input
-    }
-  };
+  if (!newTypeName) return;
 
-  const addEventToDay = (dayNumber, text, typeColor) => {
-    if (!text) return;
+  const updatedTypes = [...availableTypes, { name: newTypeName, color: newTypeColor }];
+  setAvailableTypes(updatedTypes);
+  setNewTypeName('');
 
-    const dateKey = getDateKey(dayNumber);
-    
-    setEvents(prev => {
-      const dayEvents = prev[dateKey] || [];
-      return {
-        ...prev,
-        [dateKey]: [...dayEvents, { text, color: typeColor }]
-      };
-    });
-  };
+  saveToFirestore(events, updatedTypes);
+};
 
   const getDateKey = (day) => {
     const month = currentDate.getMonth();
@@ -62,6 +79,36 @@ function YealthCalendar() {
       return newDate;
     });
   };
+
+  useEffect(() => {
+  const unsub = onAuthStateChanged(auth, async (u) => {
+    setUser(u);
+    if (!u) return;
+
+    const ref = doc(db, "calendars", u.uid);
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+      const data = snap.data();
+      setEvents(data.events || {});
+      setAvailableTypes(data.types || defaultTypes);
+    }
+  });
+
+
+  return () => unsub();
+}, []);
+
+const saveToFirestore = async (newEvents, newTypes = availableTypes) => {
+  if (!user) return;
+  await setDoc(doc(db, "calendars", user.uid), {
+    events: newEvents,
+    types: newTypes
+  });
+};
+
+if (!user) return <SignIn />;
+
     return (
       <div className="calendar-container">
           <h1 style={{ fontSize: "2.4rem", fontWeight: "700", color: "#1B4965"}}>
@@ -151,6 +198,11 @@ function YealthCalendar() {
           </div>
         ))}
       </div>
+      <br/>
+      <button className="buttons" onClick={() => signOut(auth)}>
+  Sign Out
+</button>
+
     </div>
   );
 }
