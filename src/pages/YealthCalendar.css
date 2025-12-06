@@ -82,14 +82,34 @@ h2 {
 }
 
 .event-pill { /*styling for each event displayed in the day card*/
+  display: flex;
+  justify-content: space-between; /* Pushes text to left, X to right */
+  align-items: center;
   font-size: 0.75rem;
   padding: 2px 5px;
   margin-bottom: 3px;
   border-radius: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   border: 1px solid rgba(0,0,0,0.1);
+  color: #333; /* Ensure text is readable */
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 0.5; /* Keeps the X vertically centered */
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 0 1px;
+  opacity: 0.8; /* Make it slightly see-through */
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  color: #d32f2f; /* Red color on hover */
 }
 
 .day-input-area {
