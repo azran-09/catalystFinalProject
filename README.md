@@ -2,4 +2,4 @@
 
 This project was made with React + Vite
 
-To get environment variables to host locally, contact i.singh@yale.edu
+To get Groq API key, contact i.singh@yale.edu
